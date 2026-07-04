@@ -1,8 +1,3 @@
-
-
-
-
-
 # AI Platform
 
 A modular full-stack web application built with Django that combines a blogging system, an online marketplace, user authentication, and contact management into a single platform.
