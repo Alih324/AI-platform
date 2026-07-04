@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Article | AI Site{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="page-header">
+            <h1 class="fw-bold">Edit article</h1>
+            <p class="text-muted">Update your post details.</p>
+        </div>
+        <div class="card p-4 form-card mx-auto">
+            <form method="post" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="d-flex gap-2">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-check-circle"></i> Save changes
+                    </button>
+                    <a class="btn btn-outline-secondary" href="{% url 'article_detail' article.pk %}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout | AI Site{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="page-header">
+            <h1 class="fw-bold">Checkout</h1>
+            <p class="text-muted">This demo checkout clears the session cart after confirmation.</p>
+        </div>
+        <div class="card p-4">
+            {% if has_items %}
+                <form method="post">
+                    {% csrf_token %}
+                    <p class="mb-4">Ready to place your order?</p>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="bi bi-check-circle"></i> Place order
+                        </button>
+                        <a class="btn btn-outline-secondary" href="{% url 'cart' %}">Back to cart</a>
+                    </div>
+                </form>
+            {% else %}
+                <p class="text-muted">Your cart is empty.</p>
+                <a class="btn btn-primary" href="{% url 'product_list' %}">Browse products</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

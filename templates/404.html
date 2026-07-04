@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+    <p class="text-uppercase text-muted fw-semibold small mb-2">404</p>
+    <h1 class="display-6 fw-bold">Page not found</h1>
+    <p class="lead text-muted">The page you are looking for may have moved or no longer exists.</p>
+    <a class="btn btn-primary" href="{% url 'home' %}">
+        <i class="bi bi-house-door"></i> Go home
+    </a>
+</div>
+{% endblock %}

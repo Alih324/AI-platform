@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} | AI Site{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-9">
+        <article class="card overflow-hidden mb-4">
+            {% if article.image %}
+                <img class="object-cover" src="{{ article.image.url }}" alt="{{ article.title }}">
+            {% endif %}
+            <div class="card-body p-4">
+                <div class="d-flex flex-wrap justify-content-between gap-2 mb-3">
+                    <span class="text-muted small">
+                        By {{ article.author.username }} on {{ article.created_at|date:"M d, Y" }}
+                    </span>
+                    <span class="text-muted small"><i class="bi bi-eye"></i> {{ article.views }} views</span>
+                </div>
+                <h1 class="fw-bold mb-3">{{ article.title }}</h1>
+                <p class="fs-5 lh-lg">{{ article.content|linebreaksbr }}</p>
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    {% if user == article.author or user.is_staff %}
+                        <a class="btn btn-outline-primary" href="{% url 'edit_article' article.pk %}">
+                            <i class="bi bi-pencil-square"></i> Edit
+                        </a>
+                    {% endif %}
+                    <a class="btn btn-outline-secondary" href="{% url 'articles_list' %}">
+                        <i class="bi bi-arrow-left"></i> Back to articles
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <section class="card p-4">
+            <h2 class="h4 mb-3">Comments</h2>
+            {% if user.is_authenticated %}
+                <form method="post" class="mb-4" novalidate>
+                    {% csrf_token %}
+                    {{ comment_form.as_p }}
+                    <button class="btn btn-primary" type="submit">
+                        <i class="bi bi-chat-dots"></i> Add comment
+                    </button>
+                </form>
+            {% else %}
+                <div class="alert alert-info">Please <a href="{% url 'login' %}">log in</a> to comment.</div>
+            {% endif %}
+
+            {% for comment in comments %}
+                <div class="border-top pt-3 mt-3">
+                    <div class="small text-muted mb-1">
+                        {{ comment.author.username }} . {{ comment.created_at|date:"M d, Y H:i" }}
+                    </div>
+                    <p class="mb-0">{{ comment.content|linebreaksbr }}</p>
+                </div>
+            {% empty %}
+                <p class="text-muted mb-0">No comments yet.</p>
+            {% endfor %}
+        </section>
+    </div>
+</div>
+{% endblock %}

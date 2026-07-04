@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Contact | AI Site{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="page-header">
+            <h1 class="fw-bold">Contact</h1>
+            <p class="text-muted">Send a message and it will be saved for review in the admin.</p>
+        </div>
+        <div class="card p-4 form-card mx-auto">
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary" type="submit">
+                    <i class="bi bi-send"></i> Send message
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

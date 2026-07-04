@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Home | AI Site{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-panel">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+                <p class="text-uppercase text-primary fw-semibold small mb-2">Django portfolio project</p>
+                <h1 class="display-5 fw-bold mb-3">A simple site for articles, products, and user accounts.</h1>
+                <p class="lead text-muted mb-4">
+                    Browse articles, explore the market, create an account, and send a contact message.
+                </p>
+                <div class="d-flex flex-wrap gap-2">
+                    <a class="btn btn-primary" href="{% url 'articles_list' %}">
+                        <i class="bi bi-journal-text"></i> Read articles
+                    </a>
+                    <a class="btn btn-outline-dark" href="{% url 'product_list' %}">
+                        <i class="bi bi-shop"></i> Visit market
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="card h-100 p-3">
+                            <i class="bi bi-pencil-square fs-2 text-primary"></i>
+                            <h2 class="h6 mt-3">Articles</h2>
+                            <p class="small text-muted mb-0">Create and discuss posts.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card h-100 p-3">
+                            <i class="bi bi-bag-check fs-2 text-success"></i>
+                            <h2 class="h6 mt-3">Market</h2>
+                            <p class="small text-muted mb-0">List products and use a cart.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card h-100 p-3">
+                            <i class="bi bi-person-lock fs-2 text-warning"></i>
+                            <h2 class="h6 mt-3">Accounts</h2>
+                            <p class="small text-muted mb-0">Register, log in, and edit profile.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card h-100 p-3">
+                            <i class="bi bi-envelope fs-2 text-danger"></i>
+                            <h2 class="h6 mt-3">Contact</h2>
+                            <p class="small text-muted mb-0">Save messages from visitors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Login | AI Site{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-5">
+        <div class="card p-4">
+            <h1 class="h3 fw-bold mb-3">Login</h1>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary w-100" type="submit">
+                    <i class="bi bi-box-arrow-in-right"></i> Login
+                </button>
+            </form>
+            <p class="text-muted small mt-3 mb-0">
+                New here? <a href="{% url 'register' %}">Create an account</a>.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

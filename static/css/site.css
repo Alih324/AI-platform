@@ -1,0 +1,57 @@
+:root {
+    --app-bg: #f6f8fb;
+    --app-text: #18202f;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--app-bg);
+    color: var(--app-text);
+}
+
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    border: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.75rem 1.75rem rgba(20, 32, 52, 0.08);
+}
+
+.object-cover {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.form-card {
+    max-width: 760px;
+}
+
+.form-card p {
+    margin-bottom: 1rem;
+}
+
+.form-card label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+.errorlist {
+    margin: 0.25rem 0 0.5rem;
+    padding-left: 1rem;
+    color: #dc3545;
+}
+
+.hero {
+    padding: 3rem 0;
+}
+
+.hero-panel {
+    background: linear-gradient(135deg, #ffffff 0%, #eaf2ff 100%);
+    border-radius: 0.75rem;
+    padding: 2.5rem;
+    box-shadow: 0 1rem 2.5rem rgba(20, 32, 52, 0.08);
+}
